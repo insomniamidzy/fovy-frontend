@@ -1,0 +1,99 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.btn-gradient {
+  background: linear-gradient(45deg, #0496FF, #536DFE);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-dark {
+  background: linear-gradient(45deg, #0496FF, #3350FE);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover,
+.btn-gradient-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(83, 109, 254, 0.4);
+}
+
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-in .stagger-item {
+  animation: stagger-fade-in 0.8s ease forwards;
+}
+
+.stagger-in .stagger-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-in .stagger-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.stagger-in .stagger-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.stagger-in .stagger-item:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+@keyframes stagger-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.breathing-gradient-dark {
+  background: linear-gradient(-45deg, #0F111A, #171923, #13151E, #191D29);
+  background-size: 400% 400%;
+  animation: gradient-breathe 15s ease infinite;
+}
