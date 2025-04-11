@@ -9,6 +9,7 @@ import AIChat from "./pages/AIChat";
 import SignIn from "./pages/SignIn";
 import CreateMap from "./pages/CreateMap";
 import SkillLearning from "./pages/SkillLearning";
+import ProjectWall from './pages/ProjectWall';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/create-map" element={<CreateMap />} />
           <Route path="/skill-learning" element={<SkillLearning />} />
+          <Route path="/project-wall" element={<ProjectWall />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

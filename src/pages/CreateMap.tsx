@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { Download, Share2, ZoomIn, ZoomOut, Plus, Sparkles } from 'lucide-react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateMap = () => {
   const [expandedNodes, setExpandedNodes] = useState<string[]>([]);
@@ -13,6 +13,8 @@ const CreateMap = () => {
   const [newNodeText, setNewNodeText] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [progress, setProgress] = useState(0);
+  const navigate = useNavigate();
+
 
   const handleNodeClick = (nodeId: string) => {
     if (expandedNodes.includes(nodeId)) {
@@ -92,6 +94,14 @@ const CreateMap = () => {
                 <ZoomOut className="h-4 w-4 mr-1" />
                 Zoom Out
               </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-slate-800/50 border-slate-700 text-slate-200"
+                onClick={() => navigate('/skill-learning')}
+              >
+                Go to Learning Page
+              </Button>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-4">
@@ -128,23 +138,15 @@ const CreateMap = () => {
                       throw new Error('請先添加一些技能節點！');
                     }
                     
-                    // 向AI請求職業建議
-                    const API_URL = '/api/suggest-career';
-                    console.log('✉️ 發送請求到：', API_URL);
-                    const response = await axios.post(API_URL, {
-                      // 請求內容
-                      skills: nodeLabels
-                    }, {
-                      // 請求設定
-                      headers: {
-                        'Content-Type': 'application/json',
-                      },
-                      withCredentials: false
-                    });
-
-                    console.log('✨ 收到回應：', response.data);
+                    // Mock data logic
+                    const mockData = {
+                      career: 'Software Engineer',
+                      relatedSkills: ['JavaScript', 'React', 'Node.js']
+                    };
                     
-                    const { career, relatedSkills } = response.data;
+                    console.log('✨ 收到回應：', mockData);
+                    
+                    const { career, relatedSkills } = mockData;
                     
                     // 添加職業節點到中心
                     const careerNodeId = mindMapRef.current.addNewNode(career, {
@@ -177,16 +179,9 @@ const CreateMap = () => {
                     setProgress(100); // 設置為100%表示完成
                   } catch (error: any) {
                     console.error('❌ 職業建議錯誤：', error.message);
-                    console.error('詳細錯誤信息：', error.response?.data);
                     
                     // 顯示詳細的錯誤信息
-                    const errorDetails = error.response?.data?.details || {};
-                    const errorMessage = [
-                      `錯誤： ${error.response?.data?.error || error.message}`,
-                      `API Key 狀態： ${errorDetails.apiKeyExists ? '存在' : '不存在'}`,
-                      `錯誤詳情： ${error.response?.data?.message || '無'}`,
-                      `狀態碼： ${error.response?.status || '無'}`
-                    ].join('\n');
+                    const errorMessage = `錯誤： ${error.message}`;
                     
                     alert(errorMessage);
                   } finally {

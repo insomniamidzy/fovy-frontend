@@ -15,6 +15,7 @@ import {
   Search,
   Link,
 } from 'lucide-react';
+import { MindMapCarousel } from '@/components/MindMapCarousel'; // 新增引入
 
 const Index = () => {
   const navigate = useNavigate();
@@ -117,6 +118,14 @@ const Index = () => {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+      
+      {/* 新增 MindMap Carousel Section */}
+      <section id="mindmap-carousel" className="section bg-slate-900/90">
+        <div className="container-tight py-8">
+          <h2 className="heading-lg text-white mb-4">Learn </h2>
+          <MindMapCarousel />
         </div>
       </section>
       
