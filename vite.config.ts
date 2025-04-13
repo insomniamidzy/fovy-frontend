@@ -10,10 +10,19 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'http://localhost:4000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      }
+      },
+      '/ai': {
+        target: 'http://localhost:4000',
+        changeOrigin: true, // ✅ 加上這行
+        rewrite: (path) => path.replace(/^\/ai/, '/ai')
+      },
+      '/prompt': {
+        target: 'http://localhost:4000',
+        changeOrigin: true,
+      },
     }
   },
   plugins: [

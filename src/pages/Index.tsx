@@ -15,7 +15,6 @@ import {
   Search,
   Link,
 } from 'lucide-react';
-import { MindMapCarousel } from '@/components/MindMapCarousel'; // 新增引入
 
 const Index = () => {
   const navigate = useNavigate();
@@ -121,13 +120,13 @@ const Index = () => {
         </div>
       </section>
       
-      {/* 新增 MindMap Carousel Section */}
+      {/* 新增 MindMap Carousel Section
       <section id="mindmap-carousel" className="section bg-slate-900/90">
         <div className="container-tight py-8">
           <h2 className="heading-lg text-white mb-4">Learn </h2>
           <MindMapCarousel />
         </div>
-      </section>
+      </section> */}
       
       {/* Smart Matching Section */}
       <section id="smart-matching" className="section bg-slate-900/95">
@@ -163,7 +162,9 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-xl shadow-lg">
+              <Button 
+              className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-xl shadow-lg"
+              onClick={() => navigate('/employer')}>
                 Start Matching
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
@@ -209,7 +210,7 @@ const Index = () => {
               </p>
               <Button 
                 className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6 rounded-xl shadow-lg"
-                onClick={() => navigate('/ai-chat')}
+                onClick={() => navigate('/MarketExplore')}
               >
                 Start Now
                 <ChevronRight className="ml-2 h-5 w-5" />

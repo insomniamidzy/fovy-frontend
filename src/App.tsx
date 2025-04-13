@@ -10,6 +10,8 @@ import SignIn from "./pages/SignIn";
 import CreateMap from "./pages/CreateMap";
 import SkillLearning from "./pages/SkillLearning";
 import ProjectWall from './pages/ProjectWall';
+import MarketExplore from './pages/MarketExplore';
+import Employer from './pages/Employer';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/create-map" element={<CreateMap />} />
           <Route path="/skill-learning" element={<SkillLearning />} />
           <Route path="/project-wall" element={<ProjectWall />} />
+          <Route path="/MarketExplore" element={<MarketExplore />} />
+          <Route path="/Employer" element={<Employer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
